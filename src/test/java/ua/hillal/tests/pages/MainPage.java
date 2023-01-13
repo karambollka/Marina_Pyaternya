@@ -19,6 +19,12 @@ public class MainPage extends  BasePage {
     @FindBy(linkText = "Checkboxes")
     private WebElement checkboxes;
 
+    @FindBy(linkText = "File Download")
+    private WebElement fileDownload;
+
+    @FindBy(linkText = "File Upload")
+    private WebElement fileUpload;
+
     public MainPage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);
@@ -39,6 +45,15 @@ public class MainPage extends  BasePage {
     public CheckBoxesPage goToCheckboxes(){
         clickButton(checkboxes);
         return new CheckBoxesPage(driver);
+    }
+
+    public DownloadPage goToDownload(){
+        clickButton(fileDownload);
+        return new DownloadPage(driver);
+    }
+    public UploadPage goToUpload(){
+        clickButton(fileUpload);
+        return new UploadPage(driver);
     }
 }
 
